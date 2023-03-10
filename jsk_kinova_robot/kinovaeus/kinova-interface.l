@@ -253,7 +253,8 @@
    (send* self :angle-vector-motion-plan av :ctype ctype :move-arm :rarm :total-time tm
                :start-offset-time (if start-offset-time start-offset-time start-time)
                :clear-velocities clear-velocities
-               :minjerk-interpolation t args)))
+               ;; :minjerk-interpolation t args)))
+               :minjerk-interpolation nil args)))
   (:angle-vector-sequence
    (avs &optional tms &rest args) ;; (ctype controller-type) (start-time 0) &rest args
                                   ;; &key (clear-velocities t) &allow-other-keys)
@@ -284,7 +285,8 @@
    (send* self :angle-vector-motion-plan avs :ctype ctype :move-arm :rarm :total-time tms
                :start-offset-time (if start-offset-time start-offset-time start-time)
                :clear-velocities clear-velocities
-               :minjerk-interpolation t args)))
+               ;; :minjerk-interpolation t args)))
+               :minjerk-interpolation nil args)))
   (:joint-velocity (joint-vel)
    "Send cartesian joint velocity command.
 joint-vel : joint velocity [rad/s]. length must equal to the number of joint.
